@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url('../fonts/icon.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all ease-in-out .2s;
+}
+:root{
+    --light: #fff;
+    --highlight: #FAFAFA;
+    --highlight-shadow: #f0f0f0;
+    --black: #30322F;
+    --black-hover: #252525;
+    --light-secondary: #E1E9FC;
+    --secondary: #42638C;
+    --secondary-hover: #32547e;
+    --primary: #50D97f;
+    --primary-hover: #34c466;
+    --shadow: 0 -1px 9px 2px  var(--highlight-shadow);
+}
+
+body {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    background-color: var(--highlight);
+    font-style: normal;
+    position: relative;
+    font-size: 15px;
+}
+body.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    flex-direction: column;
+    gap: 2rem;
+}
+a.logo{
+    text-decoration: none;
+    display: flex;
+    user-select: none;
+}
+a.logo img{
+    height: 25px;
+    width: auto;
+}
+.btn-group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.btn-group > *{
+    flex: 1 1 auto;
+}
+.btn{
+    background-color: var(--btn,var(--black));
+    padding: .7rem 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+    text-decoration: none;
+    user-select: none;
+    color: var(--light);
+    cursor: pointer;
+    line-height: 1.2;
+    font-size: .9rem;
+    font-weight: bold;
+}
+.btn.small{
+    padding: .5rem 1rem;
+    font-size: .8rem;
+
+}
+.btn:hover{
+    background-color: var(--btn-hover,var(--black-hover));
+}
+.btn.primary{
+    --btn: var(--primary);
+}
+.btn.primary:hover{
+    --btn-hover: var(--primary-hover);
+}
+
+header{
+    background-color: var(--light);
+    box-shadow: var(--shadow);
+}
+.container{
+    max-width: 950px;
+    margin: auto;
+}
+header .container{
+    padding: .7rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+main{
+    margin-top: 2rem;
+    padding: 1rem;
+}
+.input-group{
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.input label{
+    font-size: .8rem;
+    opacity: .7;
+    user-select: none;
+}
+input,select{
+    font-family: inherit;
+    padding: .5rem 1rem;
+    outline: none;
+    width: 100%;
+    border: 1px solid var(--light-secondary);
+}
+select{
+    cursor: pointer;
+    background-color: var(--light-secondary);
+    color: var(--secondary);
+}
+:is(h1,h2,h3,h4,h5,h6) span{
+    color: var(--secondary);
+}
+:is(h1,h2,h3,h4,h5,h6){
+    margin: 1rem 0 .5rem;
+}
+
+.cards{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
+    gap: 1rem;
+}
+.card{
+    background-color: var(--light);
+    border: 1px solid var(--highlight-shadow);
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+}
+.card:hover{
+    border-color: var(--secondary-hover);
+}
+.card .label{
+    background-color: var(--secondary);
+    color: var(--light);
+    padding: .4rem 1rem;
+    font-size: .8rem;
+}
+.card .text{
+    padding: 1.5rem 1rem;
+}
+#resultsContainer .content{
+    margin-top: 1rem;
+    border: 1px solid var(--highlight-shadow);
+}
+.loading{
+    background-color: #73d6b050;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-size: 1.5rem;
+    color: var(--black);
+    gap: .5rem;
+}
+.loading span{
+    animation: spin 1s ease forwards infinite;
+    animation-delay: .5s;
+    transform: rotateZ('180');
+}
+.loading.show{
+    display: flex;
+}
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(180deg);
+    }
+}
